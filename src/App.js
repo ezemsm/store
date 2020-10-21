@@ -4,15 +4,17 @@ import './App.css';
 
 class  App extends Component {
   
-  constructor() {
-    super();
-    this.state= { meaningOfLife:47 };   
+  constructor(props) {
+    super(props);
+    this.state= { meaningOfLife:47+this.props.increment };   
+    //add props incase needed in constructor
+    
   }
 
 handleClick  = () =>{
   this.setState((prevState,prevProps) => {
     return { 
-      meaningOfLife: prevState.meaningOfLife+ this.props.increment
+      meaningOfLife: prevState.meaningOfLife+ prevProps.increment
     }
   },  console.log(this.state.meaningOfLife));
 }
